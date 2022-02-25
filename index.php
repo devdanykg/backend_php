@@ -56,7 +56,6 @@ try {
 
 	// For errors display only
 	$uri = $_SERVER['REQUEST_URI'];
-	$notfound = false;
 	if (false !== $pos = strpos($uri, '?')) { $uri = substr($uri, 0, $pos); }
 	$uri = rawurldecode($uri);
 	$routeInfo = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $uri);
@@ -65,16 +64,15 @@ try {
 			$response = (new ResponseBuilder) 
 						->error()
 						->code(0x0001)
+						->status(404)
 						->message("Method not found")
 						->build();
-			$notfound = !$notfound;
 			break;
 		}
 	}
 
 	// Display error or response --
 	send($response);
-	if($notfound) header("HTTP/1.0 404 Not Found");
 
 } catch(\Exception $e) {
 	send (
