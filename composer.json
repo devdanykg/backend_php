@@ -1,0 +1,17 @@
+{
+    "require": {
+        "zendframework/zend-diactoros": "^1.8",
+        "php-di/php-di": "^6.0",
+        "middlewares/fast-route": "^1.0",
+        "middlewares/request-handler": "^1.1",
+        "relay/relay": "2.x@dev",
+        "http-interop/response-sender": "^1.0",
+        "mongodb/mongodb": "^1.4",
+        "doctrine/annotations": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "ATWENTYFIVE\\": "./"
+        }
+    }
+}
