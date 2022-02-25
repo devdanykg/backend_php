@@ -28,7 +28,8 @@ class CreateBank implements RequestHandlerInterface
         	return $this->ResponseBuilder
         			->error()
         			->message('Unauthorized')
-        			->code(401)
+        			->code(0x0001)
+				->status(401)
         			->build();
         }
 
