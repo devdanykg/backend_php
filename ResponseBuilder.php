@@ -77,4 +77,15 @@ class ResponseBuilder
         $this->Data['data'] = $data;
         return $this;
     }
+    
+    /**
+     * Sets up the http code
+     * @param int $code
+     * @return ResponseBuilder
+     */
+    public function status(int $code) : self
+    {
+        $this->Status = $code;
+        return $this;
+    }
 }
