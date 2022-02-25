@@ -27,9 +27,8 @@ try {
 
 	// Set up the DIC (PSR-11)
 	$containerBuilder = new ContainerBuilder();
-    $containerBuilder->useAnnotations(true);
-    $containerBuilder->addDefinitions('deps.php');
-    $containerBuilder->addDefinitions('database.php');
+    	$containerBuilder->useAnnotations(true);
+    	$containerBuilder->addDefinitions('database.php');
 	$container = $containerBuilder->build();
 
 	// Init dispatcher for routes
@@ -39,7 +38,6 @@ try {
 			$r->addRoute(['GET'], '/getBanks', $container->get(GetBanks::class)); // Works & Tested
 			$r->addRoute(['POST'], '/createBank', $container->get(CreateBank::class)); // Works & Tested
 		});
-
 		// Group for api users
 		$r->addGroup('/user', function(RouteCollector $r) use ($container) {
 			$r->addRoute(['POST'], '/register', $container->get(CreateUser::class)); // Works & Tested
@@ -50,7 +48,7 @@ try {
 	$pipe[] = $container->get(RequestParser::class);
 	$pipe[] = $container->get(Authentication::class);
 	$pipe[] = new FastRoute($dispatcher);
-    $pipe[] = new RequestHandler($container);
+    	$pipe[] = new RequestHandler($container);
 
 	// Start process the pipe
 	$handler = new Relay($pipe);
