@@ -8,7 +8,7 @@ Backend выполнен на чистом PHP с использованием �
 + [relay/relay](https://github.com/relayphp/Relay.Relay)
 + [php-di/php-di](https://github.com/PHP-DI/PHP-DI)
 + [doctrine/annotations](https://github.com/doctrine/annotations)
-+ mongodb/mongodb
++ [mongodb/mongodb](https://packagist.org/packages/mongodb/mongodb)
 + [http-interop/response-sender](https://github.com/http-interop/response-sender)
 + [middlewares/request-handler](https://github.com/middlewares/request-handler)
 + [middlewares/fast-route](https://github.com/middlewares/fast-route)
