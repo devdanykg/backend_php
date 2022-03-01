@@ -24,6 +24,15 @@ class GetBanks implements RequestHandlerInterface
     {
     	// Check request data
     	$data = $request->getAttribute('json-data');
+	$auth = $request->getAttribute('client-auth');
+        if(!$auth || !is_array($auth) || $auth['success'] !== true) {
+        	return $this->ResponseBuilder
+        			->error()
+        			->message('Unauthorized')
+        			->code(0x0001)
+				->status(401)
+        			->build();
+        }
 
     	// Create request for mongo
     	$response = $this->Mongo->bank->find();
