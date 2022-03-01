@@ -16,8 +16,6 @@ use ATWENTYFIVE\Middlewares\Authentication;
 
 // Methods
 use ATWENTYFIVE\Handlers\Bank\GetBanks;
-use ATWENTYFIVE\Handlers\Bank\CreateBank;
-use ATWENTYFIVE\Handlers\User\CreateUser;
 
 require 'vendor/autoload.php';
 
@@ -36,11 +34,6 @@ try {
 		// Group for api banks
 		$r->addGroup('/bank', function(RouteCollector $r) use ($container) {
 			$r->addRoute(['GET'], '/getBanks', $container->get(GetBanks::class)); // Works & Tested
-			$r->addRoute(['POST'], '/createBank', $container->get(CreateBank::class)); // Works & Tested
-		});
-		// Group for api users
-		$r->addGroup('/user', function(RouteCollector $r) use ($container) {
-			$r->addRoute(['POST'], '/register', $container->get(CreateUser::class)); // Works & Tested
 		});
 	});
 
